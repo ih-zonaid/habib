@@ -1,5 +1,5 @@
 // Bump VERSION on each deploy so installed apps pick up new files.
-const VERSION = "v5";
+const VERSION = "v6";
 const CACHE = "jarif-" + VERSION;
 const ASSETS = [
   "./", "index.html", "landing.css", "landing.js", "rates.json",
@@ -14,14 +14,18 @@ self.addEventListener("install", (e) => {
 self.addEventListener("activate", (e) => {
   e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
 });
-// Stale-while-revalidate: instant offline load, silently refreshes when online.
+// Network-first: always the newest files when online, cached copy when offline.
 self.addEventListener("fetch", (e) => {
   if (e.request.method !== "GET" || new URL(e.request.url).origin !== location.origin) return;
   e.respondWith(
     caches.open(CACHE).then(async (c) => {
-      const hit = await c.match(e.request, { ignoreSearch: true });
-      const net = fetch(e.request).then((r) => { if (r.ok) c.put(e.request, r.clone()); return r; }).catch(() => hit);
-      return hit || net;
+      try {
+        const r = await fetch(e.request, { cache: "no-cache" });
+        if (r.ok) c.put(e.request, r.clone());
+        return r;
+      } catch (err) {
+        return (await c.match(e.request, { ignoreSearch: true })) || Response.error();
+      }
     })
   );
 });
