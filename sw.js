@@ -1,7 +1,11 @@
 // Bump VERSION on each deploy so installed apps pick up new files.
-const VERSION = "v1";
+const VERSION = "v2";
 const CACHE = "jarif-" + VERSION;
-const ASSETS = ["./", "index.html", "style.css", "app.js", "manifest.webmanifest", "icons/icon.svg", "icons/icon-192.png", "icons/icon-512.png"];
+const ASSETS = [
+  "./", "index.html", "landing.css", "landing.js", "rates.json",
+  "app/", "app/index.html", "app/app.css", "app/app.js", "app/manifest.webmanifest",
+  "icons/icon.svg", "icons/icon-192.png", "icons/icon-512.png"
+];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>জারিফ রেট শিট</title>
+<meta name="theme-color" content="#1b5e46">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="appbar">
+  <a class="brand" href="../" aria-label="ওয়েবসাইট">
+    <img src="../icons/icon-192.png" alt="">
+    <span><b>জারিফ এন্টারপ্রাইজ</b><small>রেট শিট</small></span>
+  </a>
+  <button id="menuBtn" class="round" aria-label="সেটিং">⚙️</button>
+</header>
+
+<main>
+  <section class="card">
+    <h2><span class="step">১</span> কার জন্য রেট শিট?</h2>
+    <label>ক্লায়েন্টের নাম / ঠিকানা
+      <input id="ref" placeholder="যেমন: করিম সাহেব, বাড্ডা" autocomplete="off">
+    </label>
+    <label>তারিখ
+      <input id="date" type="date">
+    </label>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2><span class="step">২</span> রেট ঠিক করুন</h2>
+      <button id="bulkBtn" class="link">সব দাম বদলান</button>
+    </div>
+    <p class="hint">যে কাজের দাম বদলাতে চান, সেটিতে ট্যাপ করুন।</p>
+    <div id="list"></div>
+    <button id="addBtn" class="add">＋ নতুন কাজ যোগ করুন</button>
+  </section>
+</main>
+
+<div class="actionbar">
+  <button id="previewBtn" class="primary big"><span class="step light">৩</span> দেখুন ও WhatsApp-এ পাঠান</button>
+</div>
+
+<!-- Edit one item -->
+<div class="sheet" id="sheetEdit" role="dialog" aria-modal="true">
+  <div class="panel">
+    <div class="grab"></div>
+    <h3 id="editTitle">কাজ</h3>
+    <label>কাজের নাম <input id="eName" placeholder="যেমন: ওয়াল টাইলস্"></label>
+    <div class="lbl">কিসের হিসাবে?</div>
+    <div class="chips" id="eUnits"></div>
+    <div class="lbl">দাম (টাকা)</div>
+    <div class="stepper">
+      <button id="eMinus" class="round big" aria-label="কমান">−</button>
+      <input id="ePrice" inputmode="decimal" placeholder="০">
+      <button id="ePlus" class="round big" aria-label="বাড়ান">＋</button>
+    </div>
+    <button id="eSave" class="primary big">সেভ করুন</button>
+    <div class="trio" id="eTools">
+      <button id="eUp" class="ghost">↑ উপরে</button>
+      <button id="eDown" class="ghost">↓ নিচে</button>
+      <button id="eDel" class="ghost danger">মুছুন</button>
+    </div>
+    <button class="close ghost" data-close>বাতিল</button>
+  </div>
+</div>
+
+<!-- Bulk change -->
+<div class="sheet" id="sheetBulk" role="dialog" aria-modal="true">
+  <div class="panel">
+    <div class="grab"></div>
+    <h3>সব দাম একসাথে বদলান</h3>
+    <p class="hint">কত শতাংশ বাড়াতে বা কমাতে চান লিখুন। দাম ৫ টাকার কাছাকাছি করা হবে।</p>
+    <label>শতাংশ (%) <input id="bPct" inputmode="decimal" placeholder="যেমন: ১০"></label>
+    <div class="two">
+      <button id="bUp" class="primary">বাড়ান ▲</button>
+      <button id="bDown" class="primary dark">কমান ▼</button>
+    </div>
+    <button class="close ghost" data-close>বাতিল</button>
+  </div>
+</div>
+
+<!-- Settings -->
+<div class="sheet tall" id="sheetSet" role="dialog" aria-modal="true">
+  <div class="panel">
+    <div class="grab"></div>
+    <h3>সেটিং</h3>
+    <div id="installBox" class="note" hidden>
+      <b>ফোনে অ্যাপ হিসেবে রাখুন</b>
+      <p id="installText"></p>
+      <button id="installBtn" class="primary" hidden>ইনস্টল করুন</button>
+    </div>
+    <h4>প্রতিষ্ঠানের তথ্য (শিটে ছাপা হবে)</h4>
+    <label>বিসমিল্লাহ লাইন <input id="s-bismillah"></label>
+    <label>প্রতিষ্ঠানের নাম <input id="s-title"></label>
+    <label>প্রোপাইটর <input id="s-owner"></label>
+    <label>বিবরণ <textarea id="s-tagline" rows="3"></textarea></label>
+    <label>ঠিকানা <textarea id="s-address" rows="2"></textarea></label>
+    <label>মোবাইল <input id="s-mobile" inputmode="tel"></label>
+    <label>শিটের শিরোনাম <input id="s-heading"></label>
+    <label>বি: দ্র: (নিচের নোট) <textarea id="s-note" rows="5"></textarea></label>
+    <label>বাম স্বাক্ষর <input id="s-sigL"></label>
+    <label>ডান স্বাক্ষর <input id="s-sigR"></label>
+    <h4>ব্যাকআপ</h4>
+    <p class="hint">ফোনের ডাটা মুছে গেলে রেট হারিয়ে যায়। মাঝেমধ্যে ব্যাকআপ রাখুন।</p>
+    <div class="two">
+      <button id="exportBtn" class="ghost">ব্যাকআপ সেভ</button>
+      <button id="importBtn" class="ghost">ব্যাকআপ লোড</button>
+    </div>
+    <input type="file" id="importFile" accept="application/json" hidden>
+    <button id="resetBtn" class="ghost danger wide">সব আগের অবস্থায় ফেরান</button>
+    <button class="primary big" data-close>হয়েছে</button>
+  </div>
+</div>
+
+<!-- Preview / send -->
+<div class="screen" id="screenPrev">
+  <div class="appbar">
+    <button id="backBtn" class="link light">← ফিরে যান</button>
+    <b>প্রিভিউ</b><span style="width:70px"></span>
+  </div>
+  <div class="scroll"><div class="paper"><canvas id="canvas"></canvas></div></div>
+  <div class="actionbar col">
+    <button id="shareBtn" class="primary big">📲 WhatsApp-এ পাঠান</button>
+    <div class="two">
+      <button id="saveBtn" class="ghost">⬇ ছবি সেভ</button>
+      <button id="textBtn" class="ghost">💬 টেক্সট পাঠান</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"><span id="toastMsg"></span><button id="toastAct" hidden></button></div>
+<script src="app.js"></script>
+</body>
+</html>
