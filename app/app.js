@@ -255,16 +255,6 @@ function layout(ctx, i, paint) {
 
 const toBlob = () => new Promise((res) => $("#canvas").toBlob(res, "image/png"));
 const fileName = () => "jarif-rate-" + session.dateISO + ".png";
-function plainText() {
-  const i = sheetInfo();
-  const L = [`*${i.title}*`, i.owner, i.mobile ? "মোবাইল: " + i.mobile : "", "", `*${i.heading}*`];
-  if (i.ref) L.push("সূত্র: " + i.ref);
-  if (i.date) L.push("তারিখ: " + i.date);
-  L.push("");
-  state.rows.forEach((r, k) => L.push(`${bn(k + 1)}. ${r.name} — ${r.unit} ${bn(r.price)} টাকা`));
-  L.push("", i.note);
-  return L.filter((l, k, a) => l !== "" || a[k - 1] !== "").join("\n");
-}
 $("#shareBtn").onclick = async () => {
   const blob = await toBlob(), file = new File([blob], fileName(), { type: "image/png" });
   if (navigator.canShare && navigator.canShare({ files: [file] })) {
@@ -275,7 +265,6 @@ $("#shareBtn").onclick = async () => {
   setTimeout(() => window.open("https://wa.me/", "_blank"), 800);
 };
 $("#saveBtn").onclick = async () => { saveFile(await toBlob(), fileName()); toast("ছবি সেভ হয়েছে ✓"); };
-$("#textBtn").onclick = () => window.open("https://wa.me/?text=" + encodeURIComponent(plainText()), "_blank");
 
 renderList();
 if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("../sw.js").catch(() => {}));

@@ -72,6 +72,9 @@ input:focus,textarea:focus{outline:0;border-color:var(--g)}
 .screen{position:fixed;inset:0;z-index:30;background:var(--bg);display:none;flex-direction:column}
 .screen.open{display:flex}
 .screen .appbar{position:static}
+.screen .actionbar{position:static;flex:none}
+.screen .appbar b{flex:1;text-align:center}
+.screen .link{white-space:nowrap}
 .screen .scroll{flex:1;overflow:auto;padding:12px}
 .paper{background:#fff;max-width:640px;margin:auto;border-radius:6px;box-shadow:0 2px 12px #0003;overflow:hidden}
 canvas{width:100%;display:block}
