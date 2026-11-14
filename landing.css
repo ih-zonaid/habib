@@ -2,7 +2,7 @@
 @media (prefers-color-scheme:dark){:root{--bg:#121513;--sand:#1a1d1a;--tx:#e8ece9;--mut:#9aa59e;--line:#2f3631}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:"Noto Sans Bengali","Kalpurush","SolaimanLipi","Bangla Sangam MN","Nirmala UI",system-ui,sans-serif;font-size:17px;line-height:1.6;background:var(--bg);color:var(--tx)}
+body{margin:0;font-family:"Tiro Bangla","Noto Sans Bengali","Kalpurush","SolaimanLipi","Bangla Sangam MN","Nirmala UI",system-ui,sans-serif;font-size:17px;line-height:1.6;background:var(--bg);color:var(--tx)}
 a{color:inherit}
 section{padding:44px 18px;max-width:760px;margin:auto}
 section.alt{max-width:none;background:var(--sand)}

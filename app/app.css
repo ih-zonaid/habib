@@ -2,7 +2,7 @@
 @media (prefers-color-scheme:dark){:root{--bg:#111412;--card:#1b201d;--line:#323a35;--tx:#e8ece9;--mut:#9aa59e;--amber:#3a3118}}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0}
-body{font-family:"Noto Sans Bengali","Kalpurush","SolaimanLipi","Bangla Sangam MN","Nirmala UI",system-ui,sans-serif;font-size:17px;line-height:1.45;background:var(--bg);color:var(--tx);padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+body{font-family:"Tiro Bangla","Noto Sans Bengali","Kalpurush","SolaimanLipi","Bangla Sangam MN","Nirmala UI",system-ui,sans-serif;font-size:17px;line-height:1.45;background:var(--bg);color:var(--tx);padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 body.lock{overflow:hidden}
 button{font:inherit;cursor:pointer}
 .appbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;background:var(--g);color:#fff;padding:calc(10px + env(safe-area-inset-top)) 14px 10px}

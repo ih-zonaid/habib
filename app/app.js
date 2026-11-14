@@ -2,7 +2,7 @@
 const KEY = "jarif-rate-v1";
 const UNITS = ["প্রতি এস এফ টি", "প্রতি আর এফ টি", "প্রতি পিচ"];
 const UNIT_LABEL = { "প্রতি এস এফ টি": "বর্গফুট (এস এফ টি)", "প্রতি আর এফ টি": "রানিং ফুট (আর এফ টি)", "প্রতি পিচ": "পিচ" };
-const FONT = '"Noto Sans Bengali","Kalpurush","SolaimanLipi","Bangla Sangam MN","Nirmala UI",system-ui,sans-serif';
+const FONT = '"Tiro Bangla","Noto Sans Bengali","Kalpurush","SolaimanLipi","Bangla Sangam MN","Nirmala UI",system-ui,sans-serif';
 
 const DEFAULTS = {
   info: {
@@ -167,8 +167,10 @@ $("#importFile").onchange = async (e) => {
 $("#resetBtn").onclick = () => { if (confirm("সব রেট ও তথ্য আগের অবস্থায় ফিরে যাবে। নিশ্চিত?")) { state = JSON.parse(JSON.stringify(DEFAULTS)); save(); location.reload(); } };
 
 /* ---------- Step 3: preview & send ---------- */
-$("#previewBtn").onclick = () => {
+$("#previewBtn").onclick = async () => {
   if (!session.ref.trim() && !confirm("ক্লায়েন্টের নাম লেখা হয়নি। নাম ছাড়াই দেখবেন?")) { $("#ref").focus(); return; }
+  // canvas text needs the font loaded first, otherwise it falls back silently
+  try { await Promise.all([document.fonts.load('26px "Tiro Bangla"'), document.fonts.load('bold 26px "Tiro Bangla"')]); } catch (e) {}
   draw(); $("#screenPrev").classList.add("open"); document.body.classList.add("lock");
 };
 $("#backBtn").onclick = closeSheets;
