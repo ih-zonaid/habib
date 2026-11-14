@@ -1,5 +1,5 @@
 // Bump VERSION on each deploy so installed apps pick up new files.
-const VERSION = "v6";
+const VERSION = "v7";
 const CACHE = "jarif-" + VERSION;
 const ASSETS = [
   "./", "index.html", "landing.css", "landing.js", "rates.json",
