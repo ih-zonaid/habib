@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>জারিফ রেট শিট</title>
+<meta name="theme-color" content="#1b5e46">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>জারিফ রেট শিট</h1>
+  <nav class="tabs">
+    <button data-tab="rates" class="active">রেট</button>
+    <button data-tab="info">তথ্য</button>
+    <button data-tab="preview">প্রিভিউ</button>
+  </nav>
+</header>
+
+<main>
+  <section id="tab-rates" class="tab active">
+    <div id="rows"></div>
+    <button id="addRow" class="btn ghost wide">+ নতুন কাজ যোগ করুন</button>
+  </section>
+
+  <section id="tab-info" class="tab">
+    <h2>ক্লায়েন্টের জন্য (প্রতিবার)</h2>
+    <label>সূত্র / ক্লায়েন্টের নাম <input id="f-ref" placeholder="যেমন: করিম সাহেব, বাড্ডা"></label>
+    <label>তারিখ <input id="f-date" placeholder="যেমন: ১৪/১১/২০২৬"></label>
+    <button id="todayBtn" class="btn ghost">আজকের তারিখ দিন</button>
+
+    <h2>প্রতিষ্ঠানের তথ্য</h2>
+    <label>বিসমিল্লাহ লাইন <input id="f-bismillah"></label>
+    <label>প্রতিষ্ঠানের নাম <input id="f-title"></label>
+    <label>প্রোপাইটর <input id="f-owner"></label>
+    <label>বিবরণ <textarea id="f-tagline" rows="3"></textarea></label>
+    <label>ঠিকানা <textarea id="f-address" rows="2"></textarea></label>
+    <label>মোবাইল <input id="f-mobile" inputmode="tel"></label>
+    <label>শিরোনাম <input id="f-heading"></label>
+    <label>বি: দ্র: (নোট) <textarea id="f-note" rows="5"></textarea></label>
+    <label>বাম স্বাক্ষর <input id="f-sigL"></label>
+    <label>ডান স্বাক্ষর <input id="f-sigR"></label>
+
+    <h2>ব্যাকআপ</h2>
+    <div class="row-btns">
+      <button id="exportBtn" class="btn ghost">ব্যাকআপ সেভ</button>
+      <button id="importBtn" class="btn ghost">ব্যাকআপ লোড</button>
+      <button id="resetBtn" class="btn danger">রিসেট</button>
+    </div>
+    <input type="file" id="importFile" accept="application/json" hidden>
+  </section>
+
+  <section id="tab-preview" class="tab">
+    <div class="canvas-wrap"><canvas id="canvas"></canvas></div>
+  </section>
+</main>
+
+<footer class="bar">
+  <button id="shareBtn" class="btn primary">WhatsApp-এ পাঠান</button>
+  <button id="textBtn" class="btn ghost">টেক্সট</button>
+  <button id="saveBtn" class="btn ghost">ছবি</button>
+</footer>
+<div id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
