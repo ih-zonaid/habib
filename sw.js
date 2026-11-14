@@ -1,11 +1,12 @@
 // Bump VERSION on each deploy so installed apps pick up new files.
-const VERSION = "v7";
+const VERSION = "v8";
 const CACHE = "jarif-" + VERSION;
 const ASSETS = [
   "./", "index.html", "landing.css", "landing.js", "rates.json",
   "app/", "app/index.html", "app/app.css", "app/app.js", "app/manifest.webmanifest",
   "fonts/fonts.css", "fonts/tiro-bangla-bengali.woff2", "fonts/tiro-bangla-latin.woff2",
-  "icons/icon.svg", "icons/icon-192.png", "icons/icon-512.png"
+  "icons/icon-192.png", "icons/icon-512.png",
+  "icons/ui/brick-wall.svg", "icons/ui/download.svg", "icons/ui/gem.svg", "icons/ui/grid-2x2.svg", "icons/ui/hammer.svg", "icons/ui/layers.svg", "icons/ui/lock.svg", "icons/ui/map-pin.svg", "icons/ui/message-circle.svg", "icons/ui/phone.svg", "icons/ui/ruler.svg", "icons/ui/send.svg", "icons/ui/settings.svg", "icons/ui/shield-check.svg", "icons/ui/sparkles.svg", "icons/ui/stairs.svg"
 ];
 
 self.addEventListener("install", (e) => {

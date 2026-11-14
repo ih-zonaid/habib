@@ -30,7 +30,7 @@ h2{font-size:26px;margin-bottom:16px}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 @media(min-width:620px){.grid{grid-template-columns:repeat(3,1fr)}}
 .tile{border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:2px;background:var(--bg)}
-.tile i{font-style:normal;font-size:28px}
+.ti{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:var(--sand);color:var(--g);margin-bottom:8px;font-size:30px}
 .tile span{color:var(--mut);font-size:14px;line-height:1.4}
 .sub{color:var(--mut);margin:-8px 0 14px}
 .rates{background:var(--bg);border:1px solid var(--line);border-radius:16px;overflow:hidden}
@@ -51,3 +51,11 @@ select,input{width:100%;font:inherit;font-size:17px;padding:13px;margin-top:5px;
 .addr{margin:0 0 16px}
 footer{text-align:center;padding:26px 18px calc(30px + env(safe-area-inset-bottom));color:var(--mut);font-size:15px}
 footer a{display:inline-block;margin-top:4px;color:var(--mut)}
+
+/* icons: Lucide (ISC) + Tabler (MIT), drawn as masks so they take the text colour */
+.i{display:inline-block;width:1.15em;height:1.15em;vertical-align:-.2em;background:currentColor;-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat}
+.btn .i,.call-sm .i{margin-right:4px}
+.i-phone{--m:url(icons/ui/phone.svg)}.i-chat{--m:url(icons/ui/message-circle.svg)}.i-pin{--m:url(icons/ui/map-pin.svg)}
+.i-lock{--m:url(icons/ui/lock.svg)}.i-brick{--m:url(icons/ui/brick-wall.svg)}.i-grid{--m:url(icons/ui/grid-2x2.svg)}
+.i-gem{--m:url(icons/ui/gem.svg)}.i-layers{--m:url(icons/ui/layers.svg)}.i-stairs{--m:url(icons/ui/stairs.svg)}
+.i-sparkles{--m:url(icons/ui/sparkles.svg)}
