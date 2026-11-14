@@ -164,11 +164,18 @@ $("#importFile").onchange = async (e) => {
     state = { info: { ...DEFAULTS.info, ...s.info }, rows: s.rows }; save(); location.reload();
   } catch (_) { toast("ফাইলটি সঠিক নয়"); }
 };
-$("#resetBtn").onclick = () => { if (confirm("সব রেট ও তথ্য আগের অবস্থায় ফিরে যাবে। নিশ্চিত?")) { state = JSON.parse(JSON.stringify(DEFAULTS)); save(); location.reload(); } };
+// no confirm() popups: installed apps often block them, so ask with a second tap
+let resetArmed = 0;
+$("#resetBtn").onclick = () => {
+  const b = $("#resetBtn");
+  if (!resetArmed) {
+    b.textContent = "নিশ্চিত? আবার ট্যাপ করুন"; resetArmed = setTimeout(() => { resetArmed = 0; b.textContent = "সব আগের অবস্থায় ফেরান"; }, 4000); return;
+  }
+  clearTimeout(resetArmed); state = JSON.parse(JSON.stringify(DEFAULTS)); save(); location.reload();
+};
 
 /* ---------- Step 3: preview & send ---------- */
 $("#previewBtn").onclick = async () => {
-  if (!session.ref.trim() && !confirm("ক্লায়েন্টের নাম লেখা হয়নি। নাম ছাড়াই দেখবেন?")) { $("#ref").focus(); return; }
   // canvas text needs the font loaded first, otherwise it falls back silently
   try { await Promise.all([document.fonts.load('26px "Tiro Bangla"'), document.fonts.load('bold 26px "Tiro Bangla"')]); } catch (e) {}
   draw(); $("#screenPrev").classList.add("open"); document.body.classList.add("lock");
