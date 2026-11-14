@@ -1,5 +1,4 @@
-:root{--g:#1b5e46;--g2:#134735;--bg:#f3f5f2;--card:#fff;--line:#dde2dc;--tx:#1d2420;--mut:#66716a;--red:#b3261e;--amber:#fff4d6}
-@media (prefers-color-scheme:dark){:root{--bg:#111412;--card:#1b201d;--line:#323a35;--tx:#e8ece9;--mut:#9aa59e;--amber:#3a3118}}
+:root{color-scheme:light;--g:#1b5e46;--g2:#134735;--bg:#f3f5f2;--card:#fff;--line:#dde2dc;--tx:#1d2420;--mut:#66716a;--red:#b3261e;--amber:#fff4d6}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0}
 body{font-family:"Tiro Bangla","Noto Sans Bengali","Kalpurush","SolaimanLipi","Bangla Sangam MN","Nirmala UI",system-ui,sans-serif;font-size:17px;line-height:1.45;background:var(--bg);color:var(--tx);padding-bottom:calc(96px + env(safe-area-inset-bottom))}
@@ -26,7 +25,6 @@ input:focus,textarea:focus{outline:0;border-color:var(--g)}
 .hint{color:var(--mut);font-size:15px;margin:0 0 10px}
 .link{background:none;border:0;color:var(--g);font-weight:600;padding:8px 4px}
 .link.light{color:#fff}
-@media (prefers-color-scheme:dark){.link{color:#6fcf9f}}
 .item{width:100%;display:flex;align-items:center;gap:12px;text-align:left;background:var(--card);color:var(--tx);border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin-bottom:8px;min-height:64px}
 .item:active{background:var(--bg)}
 .item .no{color:var(--mut);width:26px;flex:none;font-size:14px}
@@ -34,11 +32,9 @@ input:focus,textarea:focus{outline:0;border-color:var(--g)}
 .item .meta b{font-weight:600;overflow-wrap:anywhere}
 .item .meta small{color:var(--mut);font-size:14px}
 .item .price{font-weight:700;font-size:19px;color:var(--g);white-space:nowrap}
-@media (prefers-color-scheme:dark){.item .price{color:#6fcf9f}}
 .item .price.empty{color:var(--red);font-size:15px}
 .item .chev{color:var(--mut);font-size:22px}
 .add{width:100%;border:2px dashed var(--g);background:none;color:var(--g);border-radius:14px;padding:15px;font-weight:600;margin-top:4px}
-@media (prefers-color-scheme:dark){.add{color:#6fcf9f;border-color:#6fcf9f}}
 .primary,.ghost{border-radius:14px;padding:14px 16px;border:1.5px solid var(--g);font-weight:600}
 .primary{background:var(--g);color:#fff}
 .primary.dark{background:var(--g2)}

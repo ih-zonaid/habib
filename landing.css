@@ -1,5 +1,4 @@
-:root{--g:#1b5e46;--g2:#134735;--sand:#f6f1e7;--bg:#fff;--tx:#1d2420;--mut:#66716a;--line:#e3e0d6;--acc:#c9892b;--wa:#1faa59}
-@media (prefers-color-scheme:dark){:root{--bg:#121513;--sand:#1a1d1a;--tx:#e8ece9;--mut:#9aa59e;--line:#2f3631}}
+:root{color-scheme:light;--g:#1b5e46;--g2:#134735;--sand:#f6f1e7;--bg:#fff;--tx:#1d2420;--mut:#66716a;--line:#e3e0d6;--acc:#c9892b;--wa:#1faa59}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:"Tiro Bangla","Noto Sans Bengali","Kalpurush","SolaimanLipi","Bangla Sangam MN","Nirmala UI",system-ui,sans-serif;font-size:17px;line-height:1.6;background:var(--bg);color:var(--tx)}
@@ -39,7 +38,6 @@ h2{font-size:26px;margin-bottom:16px}
 .r:first-child{border-top:0}
 .r small{display:block;color:var(--mut);font-size:14px}
 .r b{color:var(--g);white-space:nowrap;font-size:19px}
-@media (prefers-color-scheme:dark){.r b{color:#6fcf9f}}
 .fine{color:var(--mut);font-size:14px;margin:12px 0 0}
 .calc{margin-top:28px;background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:18px}
 .calc h3{font-size:20px;margin-bottom:6px}
@@ -47,7 +45,6 @@ h2{font-size:26px;margin-bottom:16px}
 select,input{width:100%;font:inherit;font-size:17px;padding:13px;margin-top:5px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--tx)}
 .total{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;padding:14px;border-radius:12px;background:var(--sand)}
 .total b{font-size:28px;color:var(--g)}
-@media (prefers-color-scheme:dark){.total b{color:#6fcf9f}}
 .why{list-style:none;padding:0;margin:0;display:grid;gap:12px}
 .why li{border-left:4px solid var(--acc);padding:4px 0 4px 14px}
 .why b{display:block}
